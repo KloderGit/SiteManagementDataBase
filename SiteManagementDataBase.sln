@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase.EntityFramework", "DataBase.EntityFramework\DataBase.EntityFramework.csproj", "{735A15E5-3A38-4D29-BE56-D068EE7B0D63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase.Interfaces", "DataBase.Interfaces\DataBase.Interfaces.csproj", "{33681E2C-7A76-4A68-B58F-03EFEDE774F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{735A15E5-3A38-4D29-BE56-D068EE7B0D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735A15E5-3A38-4D29-BE56-D068EE7B0D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735A15E5-3A38-4D29-BE56-D068EE7B0D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735A15E5-3A38-4D29-BE56-D068EE7B0D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33681E2C-7A76-4A68-B58F-03EFEDE774F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33681E2C-7A76-4A68-B58F-03EFEDE774F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33681E2C-7A76-4A68-B58F-03EFEDE774F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33681E2C-7A76-4A68-B58F-03EFEDE774F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
