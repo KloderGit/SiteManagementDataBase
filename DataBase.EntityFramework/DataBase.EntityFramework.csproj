@@ -6,7 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SiteManagementDomain\Domain.Core\Domain.Core.csproj" />
+    <ProjectReference Include="..\..\SiteManagementDomain\Domain.Interfaces\Domain.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

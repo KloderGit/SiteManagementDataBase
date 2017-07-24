@@ -16,15 +16,19 @@ namespace EntityFrameworkCore
             public DbSet<Subject> Subjects { get; set; }
             public DbSet<Certification> Certifications { get; set; }
             public DbSet<CertificationType> CertificationTypes { get; set; }
+            public DbSet<Exam> Exams { get; set; }
+            public DbSet<ExamComment> ExamComments { get; set; }
+            public DbSet<Statement> Statements { get; set; }
         #endregion
 
         #region Данные о пользователе
             public DbSet<User> Users { get; set; }
-            public DbSet<UserProfile> UserProfile { get; set; }
-            public DbSet<UserPhoto> UserPhoto { get; set; }
-            public DbSet<UserLocation> UserLocation { get; set; }
+            public DbSet<UserProfile> UserProfiles { get; set; }
+            public DbSet<UserPhoto> UserPhotos { get; set; }
+            public DbSet<UserLocation> UserLocations { get; set; }
             public DbSet<UserCard> UserCards { get; set; }
             public DbSet<UserContract> UserContracts { get; set; }
+            public DbSet<UserComment> UserComments { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
