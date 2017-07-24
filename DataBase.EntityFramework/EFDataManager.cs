@@ -1,7 +1,7 @@
 ﻿using System;
 using Domain.Interfaces.Repositories;
 
-namespace DataBase.EntityFrameworkCore
+namespace DataBase.EntityFramework
 {
     public class EFDataManager : IDataManager
     {

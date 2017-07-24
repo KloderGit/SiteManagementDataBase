@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Domain.Core.Education;
 using Domain.Interfaces.Repositories;
 
-namespace DataBase.EntityFrameworkCore
+namespace DataBase.EntityFramework
 {
-    public class EFCertificationTypeRepository : ICertificationTypeRepository
+    public class EFCertificationRepository : ICertificationRepository
     {
-        public void Create(CertificationType item)
+        public void Create(Certification item)
         {
             throw new NotImplementedException();
         }
@@ -22,12 +22,12 @@ namespace DataBase.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CertificationType> GetAll()
+        public IEnumerable<Certification> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public CertificationType GetById(int id)
+        public Certification GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -37,7 +37,7 @@ namespace DataBase.EntityFrameworkCore
             throw new NotImplementedException();
         }
 
-        public void Update(CertificationType item)
+        public void Update(Certification item)
         {
             throw new NotImplementedException();
         }

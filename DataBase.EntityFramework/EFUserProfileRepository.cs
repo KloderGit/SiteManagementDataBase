@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Domain.Core.User;
 using Domain.Interfaces.Repositories;
 
-namespace DataBase.EntityFrameworkCore
+namespace DataBase.EntityFramework
 {
     public class EFUserProfileRepository : IUserProfileRepository
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Domain.Core.Education;
 using Domain.Interfaces.Repositories;
 
-namespace DataBase.EntityFrameworkCore
+namespace DataBase.EntityFramework
 {
     public class EFGroupRepository : IGroupRepository
     {

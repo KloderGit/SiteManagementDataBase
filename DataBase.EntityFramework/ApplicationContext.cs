@@ -2,7 +2,7 @@
 using Domain.Core.Education;
 using Domain.Core.User;
 
-namespace EntityFrameworkCore
+namespace DataBase.EntityFramework
 {
     public class ApplicationContext : DbContext
     {
