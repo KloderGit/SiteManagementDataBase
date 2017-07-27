@@ -11,13 +11,11 @@ namespace DataBase.EntityFramework
     {
         ApplicationContext db;
         DbSet<T> table;
-        IEnumerable<T> tableInMemory;
 
         public EF_CRUD(ApplicationContext db)
         {
             this.db = db;
             table = db.Set<T>();
-            tableInMemory = table.Local;
         }
 
         public virtual void Add(T item)
@@ -57,7 +55,7 @@ namespace DataBase.EntityFramework
 
         public virtual IEnumerable<T> GetLocal()
         {
-            return tableInMemory;
+            return table.Local; ;
         }
     }
 }
