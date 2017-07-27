@@ -5,42 +5,100 @@ namespace DataBase.EntityFramework
 {
     public class EFDataManager : IDataManager
     {
-        public ICategoryRepository Categories => throw new NotImplementedException();
+        private ApplicationContext db;
 
-        public IEducationalPlanRepository EducationalPlans => throw new NotImplementedException();
+        EFCategoryRepository Category;
+        EFEducationalPlanRepository EducationPlan;
+        EFEducationTypeRepository EducationType;
+        EFGroupRepository Group;
+        EFEducationProgramRepository EducationProgram;
+        EFExamRepository Exam;
+        EFExamCommentsRepository ExamComment;
+        EFStatementRepository Statement;
+        EFSubGroupRepository SubGroup;
+        EFSubjectRepository Subject;
+        EFCertificationRepository Certification;
+        EFCertificationTypeRepository CertificationType;
 
-        public IEducationTypeRepository EducationTypes => throw new NotImplementedException();
+        EFUserRepository User;
+        EFUserCardRepository UserCard;
+        EFUserCommentsRepository UserComment;
+        EFUserContractRepository UserContract;
+        EFUserLocationRepository UserLocation;
+        EFUserPhotoRepository UserPhoto;
+        EFUserProfileRepository UserProfile;
 
-        public IGroupRepository Groups => throw new NotImplementedException();
+        public EFDataManager(ApplicationContext context)
+        {
+            db = context;
+        }
 
-        public IEducationProgramRepository EducationPrograms => throw new NotImplementedException();
+        public ICategoryRepository Categories => Category ?? (Category = new EFCategoryRepository(db));
 
-        public IExamRepository Exams => throw new NotImplementedException();
+        public IEducationalPlanRepository EducationalPlans => EducationPlan ?? (EducationPlan = new EFEducationalPlanRepository(db));
 
-        public IExamCommentRepository ExamComments => throw new NotImplementedException();
+        public IEducationTypeRepository EducationTypes => EducationType ?? (EducationType = new EFEducationTypeRepository(db));
 
-        public IStatementRepository Statements => throw new NotImplementedException();
+        public IGroupRepository Groups => Group ?? (Group = new EFGroupRepository(db));
 
-        public ISubGroupRepository SubGroups => throw new NotImplementedException();
+        public IEducationProgramRepository EducationPrograms => EducationProgram ?? (EducationProgram = new EFEducationProgramRepository(db));
 
-        public ISubjectRepository Subjects => throw new NotImplementedException();
+        public IExamRepository Exams => Exam ?? (Exam = new EFExamRepository(db));
 
-        public ICertificationRepository Certification => throw new NotImplementedException();
+        public IExamCommentRepository ExamComments => ExamComment ?? (ExamComment = new EFExamCommentsRepository(db));
 
-        public ICertificationTypeRepository CertificationTypes => throw new NotImplementedException();
+        public IStatementRepository Statements => Statement ?? (Statement = new EFStatementRepository(db));
 
-        public IUserRepository Users => throw new NotImplementedException();
+        public ISubGroupRepository SubGroups => SubGroup ?? (SubGroup = new EFSubGroupRepository(db));
 
-        public IUserCardRepository UserCards => throw new NotImplementedException();
+        public ISubjectRepository Subjects => Subject ?? (Subject = new EFSubjectRepository(db));
 
-        public IUserCommentRepository UserComments => throw new NotImplementedException();
+        public ICertificationRepository Certifications => Certification ?? (Certification = new EFCertificationRepository(db));
 
-        public IUserContractRepository UserContracts => throw new NotImplementedException();
+        public ICertificationTypeRepository CertificationTypes => CertificationType ?? (CertificationType = new EFCertificationTypeRepository(db));
 
-        public IUserLocationRepository UserLocations => throw new NotImplementedException();
 
-        public IUserPhotoRepository UserPhotos => throw new NotImplementedException();
+        public IUserRepository Users => User ?? (User = new EFUserRepository(db));
 
-        public IUserProfileRepository UserProfiles => throw new NotImplementedException();
+        public IUserCardRepository UserCards => UserCard ?? (UserCard = new EFUserCardRepository(db));
+
+        public IUserCommentRepository UserComments => UserComment ?? (UserComment = new EFUserCommentsRepository(db));
+
+        public IUserContractRepository UserContracts => UserContract ?? (UserContract = new EFUserContractRepository(db));
+
+        public IUserLocationRepository UserLocations => UserLocation ?? (UserLocation = new EFUserLocationRepository(db));
+
+        public IUserPhotoRepository UserPhotos => UserPhoto ?? (UserPhoto = new EFUserPhotoRepository(db));
+
+        public IUserProfileRepository UserProfiles => UserProfile ?? (UserProfile = new EFUserProfileRepository(db));
+
+
+        public void Save()
+        {
+            db.SaveChanges();
+        }
+
+
+        private bool disposed = false;
+
+        public void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+            }
+            disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+
     }
 }

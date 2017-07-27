@@ -1,7 +1,12 @@
 ﻿using System;
 using DataBase.EntityFramework;
+using Domain.Interfaces.Repositories;
+using System.Linq;
 using Domain.Core.User;
 using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Linq;
+using Domain.Core.Education;
 
 namespace ConsoleTest_DataBase
 {
@@ -11,60 +16,38 @@ namespace ConsoleTest_DataBase
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                // создаем два объекта User
-                User user1 = new User
+
+                IDataManager dm = new EFDataManager(db);
+
+                foreach (var i in new AddCatogories().Create())
                 {
-                    FirstName = "Илья",
-                    LastName = "Иджян",
-                    ParentMidleName = "Юрьевич",
-                    Email = "kloder@mail.ru",
-                    Guid = Guid.NewGuid(),
-                    Profile = new UserProfile
-                    {
-                        Birthday = new DateTime(1978, 02, 02),
-                        Excellent = false,
-                        Gender = "M",
-                        Phone = "903-145-34-12",
-                        Skype = "kloder1",
-                        WWW = "VK"
-                    },
-                    Location = new UserLocation
-                    {
-                        Post = "123456",
-                        Country = "Russia",
-                        City = "Moscow",
-                        Address = "Olympic pros, bld 62"
-                    },
-                    Photo = new UserPhoto
-                    {
-                        Url = "/local/pic.jpg"
-                    },
-                    Cards = new List<UserCard> {
-                          new UserCard {
-                               Guid = Guid.NewGuid(), Number = "234as34", PassCode = "fEda3442dE"
-                          },
-                          new UserCard {
-                              Guid = Guid.NewGuid(), Number = "EEED3232", PassCode = "fdEEE##"
-                          }
-                      }
-                };
+                    dm.Categories.Add(i);
+                }
 
+                foreach (var i in new AddCertifications().Create())
+                {
+                    dm.Certifications.Add(i);
+                }
 
+                foreach (var i in new AddEducationTypes().Create())
+                {
+                    dm.EducationTypes.Add(i);
+                }
 
-                //// добавляем их в бд
-                db.Users.Add(user1);
-                //db.Users.Add(user2);
-                db.SaveChanges();
-                Console.WriteLine("Объекты успешно сохранены");
+                foreach (var i in new AddPrograms(dm).Create())
+                {
+                    dm.EducationPrograms.Add(i);
+                }
 
-                //var users = db.Users.ToList();
-                //Console.WriteLine("Список объектов:");
-                //foreach (User u in users)
+                dm.Save();
+
+                //foreach (var item in dm.Certifications.GetAll())
                 //{
-                //    Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}");
+                //    Console.WriteLine($"{item.Title}.{item.Guid}");
                 //}
+                //Console.WriteLine($"{u.Id}.{u.FirstName} - {u.Email}");
+                Console.ReadKey();
             }
-            Console.Read();
         }
     }
 }

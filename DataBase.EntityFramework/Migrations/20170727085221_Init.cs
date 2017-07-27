@@ -95,7 +95,7 @@ namespace DataBase.EntityFramework.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    AssessmentId = table.Column<int>(nullable: true),
+                    CertificationId = table.Column<int>(nullable: true),
                     Duration = table.Column<int>(nullable: true),
                     Guid = table.Column<Guid>(nullable: false),
                     Title = table.Column<string>(nullable: true)
@@ -104,8 +104,8 @@ namespace DataBase.EntityFramework.Migrations
                 {
                     table.PrimaryKey("PK_Subjects", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Subjects_Certifications_AssessmentId",
-                        column: x => x.AssessmentId,
+                        name: "FK_Subjects_Certifications_CertificationId",
+                        column: x => x.CertificationId,
                         principalTable: "Certifications",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -465,13 +465,13 @@ namespace DataBase.EntityFramework.Migrations
                         column: x => x.ExamId,
                         principalTable: "Exams",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ExamComments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -555,9 +555,9 @@ namespace DataBase.EntityFramework.Migrations
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subjects_AssessmentId",
+                name: "IX_Subjects_CertificationId",
                 table: "Subjects",
-                column: "AssessmentId");
+                column: "CertificationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserCards_UserId",

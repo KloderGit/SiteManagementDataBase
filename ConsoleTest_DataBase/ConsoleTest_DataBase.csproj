@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SiteManagementDomain\Domain.Core\Domain.Core.csproj" />
     <ProjectReference Include="..\DataBase.EntityFramework\DataBase.EntityFramework.csproj" />
   </ItemGroup>
 

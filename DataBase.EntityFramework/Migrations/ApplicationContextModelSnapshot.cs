@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using DataBase.EntityFramework;
 
 namespace DataBase.EntityFramework.Migrations
 {
@@ -244,7 +245,7 @@ namespace DataBase.EntityFramework.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AssessmentId");
+                    b.Property<int?>("CertificationId");
 
                     b.Property<int?>("Duration");
 
@@ -254,7 +255,7 @@ namespace DataBase.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AssessmentId");
+                    b.HasIndex("CertificationId");
 
                     b.ToTable("Subjects");
                 });
@@ -524,9 +525,9 @@ namespace DataBase.EntityFramework.Migrations
 
             modelBuilder.Entity("Domain.Core.Education.Subject", b =>
                 {
-                    b.HasOne("Domain.Core.Education.Certification", "Assessment")
+                    b.HasOne("Domain.Core.Education.Certification", "Certification")
                         .WithMany()
-                        .HasForeignKey("AssessmentId");
+                        .HasForeignKey("CertificationId");
                 });
 
             modelBuilder.Entity("Domain.Core.User.UserCard", b =>

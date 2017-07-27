@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using DataBase.EntityFramework;
 
 namespace DataBase.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20170724161011_Init")]
+    [Migration("20170727085221_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -245,7 +246,7 @@ namespace DataBase.EntityFramework.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AssessmentId");
+                    b.Property<int?>("CertificationId");
 
                     b.Property<int?>("Duration");
 
@@ -255,7 +256,7 @@ namespace DataBase.EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AssessmentId");
+                    b.HasIndex("CertificationId");
 
                     b.ToTable("Subjects");
                 });
@@ -525,9 +526,9 @@ namespace DataBase.EntityFramework.Migrations
 
             modelBuilder.Entity("Domain.Core.Education.Subject", b =>
                 {
-                    b.HasOne("Domain.Core.Education.Certification", "Assessment")
+                    b.HasOne("Domain.Core.Education.Certification", "Certification")
                         .WithMany()
-                        .HasForeignKey("AssessmentId");
+                        .HasForeignKey("CertificationId");
                 });
 
             modelBuilder.Entity("Domain.Core.User.UserCard", b =>
